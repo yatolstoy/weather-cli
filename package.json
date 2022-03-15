@@ -2,7 +2,11 @@
   "name": "weather-study-cli",
   "version": "1.0.0",
   "description": "It`s study Node.js weather cli app",
-  "main": "index.js",
+  "main": "weather.js",
+  "type": "module",
+  "bin": {
+    "weather": "weather.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/yatolstoy/weather-cli"
