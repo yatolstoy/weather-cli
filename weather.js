@@ -1,9 +1,7 @@
 #!/usr/bin/env node
-import dedent from 'dedent-js'
-
 import { getArgs } from './helpers/args.js'
 import { getWeather } from './services/api.service.js';
-import { printHelp, printSuccess, printError } from './services/log.service.js';
+import { printHelp, printSuccess, printError, printWeather } from './services/log.service.js';
 import { saveKeyValue, TOKEN_DICTIONARY } from './services/storage.service.js';
 
 
@@ -33,16 +31,10 @@ const saveCity = async (city) => {
 	}
 }
 
-const printWeather = async () => {
+const getForecast = async () => {
 	try {
 		const data = await getWeather(process.env.city);
-		const message = dedent`
-	
-		В городе ${data.name} сегодня ${data.weather[0].description}
-		Температура: ${data.main.temp_min} - ${data.main.temp_max}, ощущается как ${data.main.feels_like}
-		Ветер: ${data.wind.speed} м/с
-		`
-		printSuccess(message)
+		printWeather(data)
 	} catch (e) {
 		if(e?.response?.status === 404) {
 			printError('Неверно указан город');
@@ -58,7 +50,7 @@ const initCLI = () => {
 	const args = getArgs(process.argv);
 	if(args.h) {
 		// вывод help
-		printHelp();
+		return printHelp();
 	}
 	if(args.s) {
 		// Сохранить город
@@ -69,8 +61,7 @@ const initCLI = () => {
 		return saveToken(args.t);
 	}
 	// Вывести погоду
-	printWeather();
+	return getForecast();
 };
 
-console.log(process.env)
 initCLI();

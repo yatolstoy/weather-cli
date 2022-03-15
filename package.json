@@ -12,6 +12,7 @@
     "url": "https://github.com/yatolstoy/weather-cli"
   },
   "scripts": {
+    "start": "node weather",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
