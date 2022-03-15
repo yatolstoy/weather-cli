@@ -1,0 +1,16 @@
+{
+  "name": "weather-study-cli",
+  "version": "1.0.0",
+  "description": "It`s study Node.js weather cli app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "study",
+    "weather",
+    "cli"
+  ],
+  "author": "Yatolstoy",
+  "license": "ISC"
+}
