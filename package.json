@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "It`s study Node.js weather cli app",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yatolstoy/weather-cli"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
